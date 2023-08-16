@@ -115,11 +115,11 @@
         const categoryAgeSelect = document.getElementById("category_age");
         const hargaTiketSelect = document.getElementById("grand_total");
         const kunjunganSelect = document.getElementById("visited");
-        let grandTotalElement = document.getElementById('grand_total');
+        // let grandTotalElement = document.getElementById('grand_total');
 
         categoryAgeSelect.addEventListener("change", updateHargaTiket);
         kunjunganSelect.addEventListener("change", updateHargaTiket);
-        grandTotalElement.value = <?php echo $grandTotal ?? ''; ?>
+        // grandTotalElement.value = <?php echo $grandTotal ?? ''; ?>
 
         function updateHargaTiket() {
             const categoryAge = categoryAgeSelect.value;
@@ -135,6 +135,8 @@
                 hargaTiketSelect.value = "";
             }
         }
+
+        updateHargaTiket();
     });
 </script>
     <!-- CKEditor -->

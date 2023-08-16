@@ -41,7 +41,7 @@ Route::post('booking_confirmation', 'FrontPageController@booking_confirmation')-
 Route::post('contact', 'ContactFormController@store')->name('contact_form.store');
 Route::get('booking_cancel', 'FrontPageController@booking_cancel')->name('booking_cancel')->middleware(['auth']);
 
-Auth::routes([]);
+Auth::routes(['verify' => true]);
 
 // Dashboard semua role
 Route::group(['prefix' => 'dashboard', 'as' => 'dashboard', 'middleware' => ['auth']], function() {
