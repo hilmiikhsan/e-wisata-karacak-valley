@@ -27,12 +27,12 @@
                                 <table class="table table-bordered table-striped mb-0 lara-dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Thumbnail</th>
-                                            <th>Judul Berita</th>
+                                            <th>Judul</th>
                                             <th>Deskripsi</th>
                                             <th>Status</th>
-                                            <th>Views</th>
+                                            <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -48,7 +48,8 @@
                                                 <td>
                                                     {!! ($item->is_publish == 1) ? "<span class='badge badge-success'>Publish</span>" : "<span class='badge badge-warning'>Draft</span>" !!}
                                                 </td>
-                                                <td>Dilihat {{ $item->views_count ?? 0 }}x <br> <a href="{{ route('berita.detail', $item->slug) }}">Lihat Berita</a></td>
+                                                <td>{{ $item->tanggal }}</td>
+                                                {{-- <td>Dilihat {{ $item->views_count ?? 0 }}x <br> <a href="{{ route('berita.detail', $item->slug) }}">Lihat Berita</a></td> --}}
                                                 <td>
                                                     <a href="{{ route('dashboard.berita.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                                     <form method="POST" action="{{ route('dashboard.berita.destroy', $item->id) }}" class="d-inline-block">

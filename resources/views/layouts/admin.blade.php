@@ -87,12 +87,12 @@
     <!-- [ Mobile header ] End -->
 
     <!-- [ navigation menu ] start -->
-    <nav class="pc-sidebar ">
+    <nav class="pc-sidebar">
         <div class="navbar-wrapper">
             <div class="m-header">
-                <a href="index.html" class="b-brand">
+                <a href="{{ url('/') }}" class="b-brand">
                     <!-- ========   change your logo hear   ============ -->
-                    <img src="{{ asset('') }}/img/e-wisata.png" alt="" class="logo logo-lg"
+                    <img src="{{ asset('/') }}img/logosistem.png" alt="" class="logo logo-lg"
                         style="max-width: 150px;">
                     <img src="{{ asset('admin_theme') }}/assets/images/logo-sm.svg" alt="" class="logo logo-sm">
                 </a>

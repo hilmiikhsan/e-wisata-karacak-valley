@@ -15,42 +15,45 @@
     <div class="slider_area">
         <div class="slider_active owl-carousel">
             <div class="single_slider  d-flex align-items-center overlay"
-                style="background-image: url('{{ asset('img/danau-uter.jpg') }}')">
+                style="background-image: url('{{ asset('img/slider1.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Danau Uter</h3>
-                                <p>{{ env('APP_NAME') }}</p>
-                                <a href="#" class="boxed-btn3">Jelajahi Sekarang!</a>
+                            <div class="text-center">
+                                <h3 style="color: white; font-weight: bold; font-size: 50px;">SELAMAT DATANG DI WEBSITE WISATA KARACAK VALLEY</h3>
+                                {{-- <p>{{ env('APP_NAME') }}</p> --}}
+                                <br><br>
+                                <a href="#" class="boxed-btn3">Selengkapnya ...</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="single_slider  d-flex align-items-center overlay"
-                style="background-image: url('{{ asset('img/danau-framu.jpg') }}')">
+                style="background-image: url('{{ asset('img/slider2.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Danau Framu</h3>
-                                <p>{{ env('APP_NAME') }}</p>
-                                <a href="#" class="boxed-btn3">Jelajahi Sekarang!</a>
+                            <div class="text-center">
+                                <h3 style="color: white; font-weight: bold; font-size: 50px;">SELAMAT DATANG DI WEBSITE WISATA KARACAK VALLEY</h3>
+                                {{-- <p>{{ env('APP_NAME') }}</p> --}}
+                                <br><br>
+                                <a href="#" class="boxed-btn3">Selengkapnya ...</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="single_slider  d-flex align-items-center overlay"
-                style="background-image: url('{{ asset('img/danau-ayamaru.jpg') }}')">
+                style="background-image: url('{{ asset('img/slider3.jpg') }}')">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
-                            <div class="slider_text text-center">
-                                <h3>Danau Ayamaru</h3>
-                                <p>{{ env('APP_NAME') }}</p>
-                                <a href="#" class="boxed-btn3">Jelajahi Sekarang!</a>
+                            <div class="text-center">
+                                <h3 style="color: white; font-weight: bold; font-size: 50px;">SELAMAT DATANG DI WEBSITE WISATA KARACAK VALLEY</h3>
+                                {{-- <p>{{ env('APP_NAME') }}</p> --}}
+                                <br><br>
+                                <a href="#" class="boxed-btn3">Selengkapnya ...</a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +62,7 @@
         </div>
     </div>
 
-    <div class="where_togo_area">
+    {{-- <div class="where_togo_area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3">
@@ -85,27 +88,58 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="popular_places_area">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
+                {{-- <div class="col-lg-12">
                    <div style="height: 500px;">
                         <div id="gmap"></div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="row justify-content-center mt-5">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
-                        <h3>Wisata Populer</h3>
-                        <p>Nah, buat kamu yang bingung akhir pekan mau ke mana, Berikut ini ada beberapa tempat wisata di
-                            {{ env('APP_NAME') }} terbaru yang lagi hits dan wajib untuk kamu kunjungi!.</p>
+                        <h3>SELAMAT DATANG DI WISATA KARACAK VALLEY</h3>
+                        <br><br>
+                                <a href="#" class="boxed-btn3">Tentang Kami Selengkapnya...</a>
+                        {{-- <p>Nah, buat kamu yang bingung akhir pekan mau ke mana, Berikut ini ada beberapa tempat wisata di
+                            {{ env('APP_NAME') }} terbaru yang lagi hits dan wajib untuk kamu kunjungi!.</p> --}}
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="video_area video_bg overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="video_wrap text-center">
+                                {{-- <h3>Pariwisata {{ env('APP_NAME') }}</h3> --}}
+                                <h3>GALLERY VIDEO</h3>
+                                <div class="video_icon">
+                                    {{-- <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=ckxhoqgFJZc"> --}}
+                                        <a class="popup-video video_play_button" href="{{ asset('video/video.mp4') }}">
+                                        <i class="fa fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb_70">
+                        <h3>FASILITAS WISATA KARACAK VALLEY</h3>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+            {{-- <div class="row">
                 @foreach ($wisatas as $item)
                     <div class="col-lg-4 col-md-6">
                         <div class="single_place">
@@ -140,35 +174,114 @@
                         </div>
                     </div>
                 @endforeach
+            </div> --}}
+            <div class="row">
+                @foreach ($fasilitasWisata as $item)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_place">
+                            <div class="thumb">
+                                <img src="{{ ($item->thumbnail == '') ? asset('img/default.png') : url(Storage::url($item->thumbnail)) }}" alt="">
+                                {{-- <a href="{{ route('wisata.detail', $item->slug) }}" class="prise">Rp {{ number_format($item->price, 0, ",", ".") }}</a> --}}
+                            </div>
+                            <div class="place_info">
+                            <a href="{{ route('fasilitas.detail', $item->slug) }}">
+                                    <h3>{{ $item->judul }}</h3>
+                                </a>
+                                <p>{!! Str::limit($item->deskripsi, 50) !!}</p>
+                                {{-- <div class="rating_days d-flex justify-content-between">
+                                    <span class="d-flex justify-content-center align-items-center">
+                                        @php
+                                        // Akumulasi star score dari setiap review
+                                        $transactions = $item->transaksi->where('testimoni', '!=', '')->where('status', 1);
+                                        $scores = 0;
+                                        foreach($transactions as $trans) {
+                                            $scores += $trans->star_score;
+                                        }
+                                        $accumulated = round((($scores == 0) ? 1 : $scores) / (($transactions->count() == 0) ? 1 : $transactions->count()));
+                                        @endphp
+
+                                        @for ($i = 0; $i < $accumulated; $i++)
+                                            <i class="fa fa-star"></i>
+                                        @endfor
+                                        <a href="#">({{ $transactions->count() }} Review)</a>
+                                    </span>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="more_place_btn text-center">
-                        <a class="boxed-btn4" href="{{ route('wisata_list') }}">Eksplor Lebih Banyak!</a>
+                        <a class="boxed-btn4" href="{{ route('fasilitas_list') }}">Lihat Fasilitas Selengkapnya...</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="video_area video_bg overlay">
-        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb_70">
+                        <h3>PROMO TERBARU</h3>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="video_wrap text-center">
-                        <h3>Pariwisata {{ env('APP_NAME') }}</h3>
-                        <div class="video_icon">
-                            <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=ckxhoqgFJZc">
-                                <i class="fa fa-play"></i>
-                            </a>
+                @foreach ($promo as $item)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single_place">
+                            <div class="thumb">
+                                <img src="{{ ($item->thumbnail == '') ? asset('img/default.png') : url(Storage::url($item->thumbnail)) }}" alt="">
+                            </div>
+                            <div class="place_info">
+                            <a href="{{ route('promo.detail', $item->slug) }}">
+                                    <h3>{{ $item->judul }}</h3>
+                                </a>
+                                <p>{!! Str::limit($item->deskripsi, 50) !!}</p>
+                                <p>{{ \Carbon\Carbon::parse($item->tanggal)->locale('id')->diffForHumans() }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="more_place_btn text-center">
+                            <a class="boxed-btn4" href="{{ route('promo_list') }}">Lihat Promo Selengkapnya...</a>
                         </div>
                     </div>
                 </div>
+
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-6">
+                        <div class="section_title text-center mb_70">
+                            <h3>GALLERY</h3>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    @foreach ($galleries as $item)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single_place">
+                                <a href="{{ ($item->thumbnail == '') ? asset('img/default.png') : url(Storage::url($item->thumbnail)) }}" data-lightbox="gallery" data-title="{{ $item->judul }}">
+                                    <div class="thumb">
+                                        <img src="{{ ($item->thumbnail == '') ? asset('img/default.png') : url(Storage::url($item->thumbnail)) }}" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="travel_variation_area">
+    {{-- <div class="travel_variation_area">
         <div class="container">
             <div class="row">
                 @foreach ($fasilitas as $item)
@@ -183,7 +296,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @push('js')
@@ -296,5 +409,13 @@
     }
     // Init map
     initialize();
+</script>
+
+<script>
+    // Inisialisasi Lightbox
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
 </script>
 @endpush

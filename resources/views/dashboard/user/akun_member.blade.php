@@ -18,15 +18,15 @@
                                 <div class="col-sm-6">
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                   
+
                                 </div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped mb-0 lara-dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Avatar</th>
+                                            <th>No</th>
+                                            <th>Foto</th>
                                             <th>Username</th>
                                             <th>Nama Lengkap</th>
                                             <th>Nomor HP</th>

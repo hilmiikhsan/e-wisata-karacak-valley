@@ -49,27 +49,86 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <img src="{{ $transaction->wisata->thumbnail == '' ? asset('img/default.png') : url(Storage::url($transaction->wisata->thumbnail)) }}"
+                                                        {{-- <img src="{{ $transaction->wisata->thumbnail == '' ? asset('img/default.png') : url(Storage::url($transaction->wisata->thumbnail)) }}"
                                                             alt="contact-img" title="contact-img" class="rounded mr-2"
-                                                            height="48">
+                                                            height="48"> --}}
                                                         <p class="m-0 d-inline-block align-middle">
                                                             <a href="#!"
-                                                                class="text-body font-weight-bold">{{ $transaction->wisata->wisata }}</a>
+                                                                class="text-body font-weight-bold">Nama</a>
                                                             <br>
-                                                            <small>{{ $transaction->people_count }} Orang x
+                                                            {{-- <small>{{ $transaction->people_count }} Orang x
                                                                 {{ $transaction->days }} Hari x Rp.
                                                                 {{ $transaction->wisata->price }}</small>
-                                                        </p>
+                                                        </p> --}}
                                                     </td>
-                                                    <td class="text-right">
+                                                    {{-- <td class="text-right">
                                                         Rp.
                                                         {{ number_format($transaction->people_count * $transaction->days * $transaction->wisata->price, 0, ',', '.') }}
+                                                    </td> --}}
+                                                    <td class="text-right">
+                                                        {{ $userName }}
                                                     </td>
                                                 </tr>
-                                                @php
+                                                <tr>
+                                                    <td>
+                                                        <p class="m-0 d-inline-block align-middle">
+                                                            <a href="#!"
+                                                                class="text-body font-weight-bold">Kategori Usia</a>
+                                                            <br>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{ $transaction->category_age }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="m-0 d-inline-block align-middle">
+                                                            <a href="#!"
+                                                                class="text-body font-weight-bold">Kunjungan</a>
+                                                            <br>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{ $transaction->visited }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="m-0 d-inline-block align-middle">
+                                                            <a href="#!"
+                                                                class="text-body font-weight-bold">Jml Orang & Hari</a>
+                                                            <br>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        {{ $transaction->people_count }} Orang &
+                                                        {{ $transaction->days }} Hari
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p class="m-0 d-inline-block align-middle">
+                                                            <a href="#!"
+                                                                class="text-body font-weight-bold">Tanggal Kedatangan</a>
+                                                            <br>
+                                                    </td>
+                                                    <td class="text-right">{{ \Carbon\Carbon::parse($transaction->check_in)->locale('id_ID')->isoFormat('dddd, D MMMM Y') }}</td>
+                                                </tr>
+                                                @if ($userRole === 'super_admin')
+                                                    <tr>
+                                                        <td>
+                                                            <p class="m-0 d-inline-block align-middle">
+                                                                <a href="#!"
+                                                                    class="text-body font-weight-bold">Pesan / Catatan</a>
+                                                                <br>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            {{ $transaction->message }}
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                {{-- @php
                                                     $grand_total = $transaction->people_count * $transaction->days * $transaction->wisata->price;
-                                                @endphp
-                                                @foreach ($transaction->transaksi_detail as $item)
+                                                @endphp --}}
+                                                {{-- @foreach ($transaction->transaksi_detail as $item)
                                                     @php
                                                         $facility = \App\Fasilitas::find($item->facility_id);
                                                     @endphp
@@ -95,7 +154,7 @@
                                                     @php
                                                         $grand_total += $transaction->people_count * $transaction->days * $facility->price;
                                                     @endphp
-                                                @endforeach
+                                                @endforeach --}}
                                             </tbody>
                                         </table>
                                     </div>
@@ -110,7 +169,8 @@
                                                     <h5 class="m-0">Grand Total:</h5>
                                                 </td>
                                                 <td class="font-weight-semibold">
-                                                    Rp {{ number_format($grand_total, 0, ',', '.') }}
+                                                    {{-- Rp {{ number_format($grand_total, 0, ',', '.') }} --}}
+                                                    Rp {{ number_format($transaction->grand_total, 0, ',', '.') }}
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -142,7 +202,7 @@
                                     @endif
 
                                     <h5 class="mb-3">Upload Bukti Bayar</h5>
-                                    
+
                                     <form method="POST"
                                         action="{{ route('dashboard.transaction.upload_bukti', $transaction->id) }}"
                                         enctype="multipart/form-data">

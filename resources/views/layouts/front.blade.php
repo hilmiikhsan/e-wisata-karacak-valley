@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}css/slicknav.css">
     <link rel="stylesheet" href="{{ asset('/') }}css/jquery-ui.css">
     <link rel="stylesheet" href="{{ asset('/') }}css/style.css">
+    <link rel="stylesheet" href="{{ asset('admin_theme') }}/assets/css/plugins/lightbox.min.css">
 
     @stack('css')
 
@@ -43,17 +44,20 @@
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
                                     <a href="{{ route('welcome') }}">
-                                        <img src="{{ asset('/') }}img/e-wisata.png" alt="{{ env('APP_NAME') }}"
+                                        <img src="{{ asset('/') }}img/logo-valley-2.png" alt="{{ env('APP_NAME') }}"
                                             width="200">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
-                                <div class="main-menu  d-none d-lg-block">
+                                <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
                                             <li><a class="active" href="{{ url('/') }}">Home</a></li>
-                                            <li><a href="#">Kategori <i class="ti-angle-down"></i></a>
+                                            <li><a class="active" href="{{ url('/tentang') }}">About</a></li>
+                                            <li><a class="active" href="{{ route('fasilitas_list') }}">Fasilitas</a></li>
+                                            <li><a class="active" href="{{ route('promo_list') }}">Promo</a></li>
+                                            {{-- <li><a href="#">Kategori <i class="ti-angle-down"></i></a>
                                                 @php
                                                     $menu_kategori = \App\Kategori::all();
                                                 @endphp
@@ -62,16 +66,18 @@
                                                         <li><a href="{{ route('wisata.list_by_kategori', $item->id) }}">{{ $item->category }}</a></li>
                                                     @endforeach
                                                 </ul>
-                                            </li>
-                                            <li><a href="#">Tentang <i class="ti-angle-down"></i></a>
+                                            </li> --}}
+                                            {{-- <li><a class="" href="{{ route('wisata_list') }}">Wisata</a></li> --}}
+                                            <li><a class="" href="{{ route('berita_list') }}">Blog</a></li>
+                                            <li><a class="" href="{{ route('gallery_list') }}">Gallery</a></li>
+                                            <li><a href="#">Info <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="{{ url('/tentang') }}"> Tentang Kami </a></li>
-                                                    <li><a href="{{ url('kontak') }}"> Kontak Kami </a></li>
+                                                    <li><a href="{{ url('kontak') }}"> Contact Us </a></li>
+                                                    <li><a href="{{ url('maps') }}"> Maps </a></li>
                                                 </ul>
                                             </li>
-                                            <li><a class="" href="{{ route('wisata_list') }}">Wisata</a></li>
-                                            <li><a class="" href="{{ route('berita_list') }}">Berita</a></li>
-                                            @if (Auth::check() && Auth::user()->role == 'member')
+                                            {{-- <li><a class="" href="{{ route('berita_list') }}">Maps</a></li> --}}
+                                            {{-- @if (Auth::check() && Auth::user()->role == 'member')
                                                 <li><a href="{{ url('dashboard') }}">
                                                         <img src="{{ Auth::user()->avatar == '' ? asset('img/user.png') : url(Storage::url(Auth::user()->avatar)) }}"
                                                             alt="" style="max-width: 20px;border-radius:50%;">
@@ -79,31 +85,35 @@
                                                     </a></li>
                                             @else
                                                 <li><a href="{{ url('login') }}">Login</a></li>
-                                            @endif
+                                            @endif --}}
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 d-none d-lg-block">
-                                <div class="social_wrap d-flex align-items-center justify-content-end">
-                                    <div class="number">
-                                        <p> <i class="fa fa-phone"></i> +62 852-5562-5733</p>
-                                    </div>
+                                <div class="d-flex align-items-center justify-content-end">
                                     <div class="social_links d-none d-xl-block">
-                                        <ul>
-                                            <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                                        <ul style="display: flex; list-style-type: none; padding: 0;">
+                                            <li style="margin-right: 30px;"><a href="{{ url('register') }}">Register</a></li>
+                                            @if (Auth::check() && Auth::user()->role == 'member')
+                                                <li><a href="{{ url('dashboard') }}">
+                                                        <img src="{{ Auth::user()->avatar == '' ? asset('img/user.png') : url(Storage::url(Auth::user()->avatar)) }}"
+                                                            alt="" style="max-width: 20px;border-radius:50%;">
+                                                        My Dashboard
+                                                    </a></li>
+                                            @else
+                                                <li style="margin-right: 30px;"><a href="{{ url('login') }}">Login</a></li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="seach_icon">
+
+                            {{-- <div class="seach_icon">
                                 <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
                                     <i class="fa fa-search"></i>
                                 </a>
-                            </div>
+                            </div> --}}
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
@@ -160,37 +170,38 @@
                     <div class="col-xl-4 col-md-6 col-lg-4 ">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
+                                {{-- <a href="#">
                                     <img src="{{ asset('/') }}img/e-wisata.png" alt="E-Wisata" width="200">
-                                </a>
+                                </a> --}}
+                                <h2 style="color: aliceblue">WEBSITE WISATA KARACAK VALLEY</h2>
                             </div>
-                            <p>Sistem Informasi {{ env('APP_NAME') }}. <br>.
+                            <p>Sistem Informasi {{ env('APP_NAME') }}. <br>
                             </p>
                             <div class="socail_links">
                                 <ul>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://facebook.com/groups/261617750886366/" target="_blank">
                                             <i class="ti-facebook"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://twitter.com/karacak_valley?t=BU9DM0lShRi5d4GF6gt8bg&s=09" target="_blank">
                                             <i class="ti-twitter-alt"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://instagram.com/karacak_valley?igshid=MzRlODBiNWFlZA==" target="_blank">
                                             <i class="fa fa-instagram"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-pinterest"></i>
+                                        <a href="https://youtu.be/2pY5dJMZDzU" target="_blank">
+                                            <i class="fa fa-youtube-play"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <i class="fa fa-youtube-play"></i>
+                                        <a href="https://www.tiktok.com/@karacakvalleygarut?_t=8eTyVjJmU2z&_r=1" target="_blank">
+                                            <i class="fa fa-music"></i>
                                         </a>
                                     </li>
                                 </ul>
@@ -199,14 +210,20 @@
                     </div>
                     <div class="col-xl-2 col-md-6 col-lg-2">
                         <div class="footer_widget">
-                            <h3 class="footer_title">
-                                {{ env('APP_NAME') }}
-                            </h3>
                             <ul class="links">
                                 <li><a href="{{ route('welcome') }}">Home</a></li>
-                                <li><a href="{{ url('/tentang') }}">Tentang</a></li>
-                                <li><a href="{{ route('wisata_list') }}"> Wisata</a></li>
-                                <li><a href="{{ url('/kontak') }}"> Kontak</a></li>
+                                <li><a href="{{ url('/tentang') }}">About</a></li>
+                                <li><a href="{{ url('/tentang') }}">Blog</a></li>
+                                <li><a href="{{ route('fasilitas_list') }}"> Fasilitas</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <ul class="links">
+                                <li><a href="{{ url('/tentang') }}">Promo</a></li>
+                                <li><a href="{{ url('/tentang') }}">Gallery</a></li>
+                                <li><a href="{{ url('/kontak') }}"> Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -221,7 +238,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
 
-                            Copyright &copy; 2022 {{ env('APP_NAME') }}
+                            Copyright &copy; 2023 {{ env('APP_NAME') }}
 
                         </p>
                     </div>
@@ -264,6 +281,7 @@
     <script src="{{ asset('/') }}js/plugins.js"></script>
     <script src="{{ asset('/') }}js/gijgo.min.js"></script>
     <script src="{{ asset('/') }}js/slick.min.js"></script>
+    <script src="{{ asset('admin_theme') }}/assets/js/plugins/lightbox.min.js""></script>
 
     <script src="{{ asset('/') }}js/contact.js"></script>
     <script src="{{ asset('/') }}js/jquery.ajaxchimp.min.js"></script>

@@ -27,9 +27,9 @@
                                 <table class="table table-bordered table-striped mb-0 lara-dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Thumbnail</th>
-                                            <th>Fasilitas</th>
+                                            <th>Judul</th>
                                             <th>Harga</th>
                                             <th>Aksi</th>
                                         </tr>

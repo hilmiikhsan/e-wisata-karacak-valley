@@ -53,6 +53,10 @@
                                             </label>
                                           </div>
                                     </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Tanggal</label>
+                                        <input type="date" class="form-control" name="tanggal" value="{{ $post->tanggal }}" required>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn  btn-primary">Simpan</button>
                             </form>

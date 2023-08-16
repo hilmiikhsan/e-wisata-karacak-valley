@@ -11,7 +11,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Pesan Formulir Kontak</h5>
+                            <h5>Inbox / Contact us</h5>
                         </div>
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
@@ -24,7 +24,8 @@
                                 <table class="table table-bordered table-striped mb-0 lara-dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
+                                            <th>Tanggal</th>
                                             <th>Subjek</th>
                                             <th>Nama</th>
                                             <th>Email</th>
@@ -36,6 +37,7 @@
                                         @foreach ($contact_form as $item)
                                             <tr>
                                                 <td width="10">{{ $loop->iteration }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-n-j') }}</td>
                                                 <td>{{ $item->subject }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->email }}</td>

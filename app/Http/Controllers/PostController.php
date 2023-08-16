@@ -34,7 +34,7 @@ class PostController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Tambah Berita'
+            'title' => 'Tambah Blog'
         ];
 
         return view('dashboard.post.create', $data);
@@ -66,6 +66,7 @@ class PostController extends Controller
         $post->deskripsi = $request->deskripsi;
         $post->user_id = Auth::user()->id;
         $post->is_publish = isset($request->is_publish) ? 1 : 0;
+        $post->tanggal = $request->tanggal;
         $post->save();
 
         return redirect()->back()->with('success', 'Berhasil menambahkan data');
@@ -120,6 +121,7 @@ class PostController extends Controller
         $post->deskripsi = $request->deskripsi;
         $post->user_id = Auth::user()->id;
         $post->is_publish = isset($request->is_publish) ? 1 : 0;
+        $post->tanggal = $request->tanggal;
         $post->save();
 
         return redirect()->back()->with('success', 'Berhasil mengubah data');

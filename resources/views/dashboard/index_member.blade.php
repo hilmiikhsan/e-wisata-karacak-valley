@@ -41,22 +41,23 @@
                         <div class="card-body">
                             <div class="alert alert-success" role="alert">
                                 <h4 class="alert-heading">Selamat Datang {{ Auth::user()->name }}</h4>
-                                <p>Selamat {{ Auth::user()->name }}, anda berhasil login ke dalam sistem E-Wisata,
-                                    silahkan eksplor menu yang ada di sebelah kiri untuk melihat data pesanan anda beserta
-                                    statusnya</p>
+                                <p>Selamat {{ Auth::user()->name }}, anda berhasil login ke dalam sistem E-Tiket Karacak Valley,
+                                    Silahkan pesan tiket di wisata karacak valley garut</p>
                                 <hr>
-                                <p class="mb-0"><a href="{{ route('welcome') }}" class="btn btn-primary">Pilih
+                                {{-- <p class="mb-0"><a href="{{ route('welcome') }}" class="btn btn-primary">Pilih
                                         Wisata</a></p>
-                            </div>
+                            </div> --}}
+                            <p class="mb-0"><a href="{{ route('dashboard.create') }}" class="btn btn-primary">Pesanan</a></p></div>
 
-                            <h6 class="mb-20 mt-4">
+                            {{-- <h6 class="mb-20 mt-4">
                                 Ayo, Kunjungi Wisata
                             </h6>
                             <div style="height: 500px;">
                                 <div id="gmap"></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
+                    <h3>DASHBOARD</h3>
                 </div>
                 <div class="col-sm-6">
                     <div class="card text-center bg-warning text-white">

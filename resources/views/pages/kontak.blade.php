@@ -1,13 +1,12 @@
 @extends('layouts.front')
 
 @section('content')
-<div class="bradcam_area bradcam_bg_4">
+<div class="bradcam_area" style="background-image: url('{{ asset('img/kontakus.jpg') }}')">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div class="bradcam_text text-center">
-                    <h3>Kontak</h3>
-                    <p>{{ config('app.name') }} Kontak</p>
+                <div class="text-center">
+                    <h3 style="color: white; font-weight: bold; font-size: 50px;">CONTACT US <br> KARACAK VALLEY</h3>
                 </div>
             </div>
         </div>
@@ -18,10 +17,33 @@
 <section class="contact-section">
     <div class="container">
         <div class="d-none d-sm-block mb-5 pb-4">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1021077.9938637866!2d131.80750098804052!3d-1.4241288846321445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d5a8f3db5fbb123%3A0x21654c126db10d9e!2sMaybrat%20Regency%2C%20West%20Papua!5e0!3m2!1sen!2sid!4v1644505495032!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15884.756380379217!2d107.9508674!3d-7.2693522!3m2!1i1024!2i768!4f13.1!4m3!3e6!4m0!4m0!5e0!3m2!1sen!2sid!4v1644505495032" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-lg-3 offset-lg-1">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-home"></i></span>
+                    <div class="media-body">
+                        <h3>{{ env('APP_NAME') }}.</h3>
+                        <p>{{ env('APP_NAME') }}</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                    <div class="media-body">
+                        <h3>+62 852-5562-5733</h3>
+                        <p>Senin - Sabtu</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="ti-email"></i></span>
+                    <div class="media-body">
+                        <h3><a href="javascript:void(0)" class="__cf_email__">webwisata@gmail.com</a></h3>
+                        <p>Kirim email kepada kami kapan saja</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
                 <h2 class="contact-title">Kontak Kami</h2>
                 @if (Session::has('success'))
                     <div class="alert alert-success" role="alert">
@@ -35,8 +57,6 @@
                         </div>
                     @endforeach
                 @endif
-            </div>
-            <div class="col-lg-8">
                 <form class="form-contact contact_form" action="{{ route('contact_form.store') }}" method="post">
                     @csrf
                     <div class="row">
@@ -62,32 +82,9 @@
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                        <button type="submit" class="button button-contactForm boxed-btn">Send Message</button>
                     </div>
                 </form>
-            </div>
-            <div class="col-lg-3 offset-lg-1">
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-home"></i></span>
-                    <div class="media-body">
-                        <h3>{{ env('APP_NAME') }}.</h3>
-                        <p>{{ env('APP_NAME') }}</p>
-                    </div>
-                </div>
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                    <div class="media-body">
-                        <h3>+62 852-5562-5733</h3>
-                        <p>Senin - Sabtu</p>
-                    </div>
-                </div>
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-email"></i></span>
-                    <div class="media-body">
-                        <h3><a href="javascript:void(0)" class="__cf_email__">webwisata@gmail.com</a></h3>
-                        <p>Kirim email kepada kami kapan saja</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

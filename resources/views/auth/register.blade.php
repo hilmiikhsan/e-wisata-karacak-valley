@@ -47,7 +47,7 @@
 </head>
 
 <!-- [ auth-signup ] start -->
-<div class="auth-wrapper auth-v3">
+<div class="auth-wrapper auth-v3" style="background-image: url('{{ asset('img/register.jpg') }}')">
     <div class="auth-content">
         <div class="card">
             <div class="row align-items-stretch text-center">

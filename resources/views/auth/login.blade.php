@@ -36,7 +36,7 @@
 <!-- [ signin-img ] start -->
 <div class="auth-wrapper align-items-stretch aut-bg-img">
     <div class="flex-grow-1 d-flex">
-        <div class="h-100 d-md-flex align-items-end auth-side-img" style="background-image: url('{{ asset('img/Karacak-Valley-2.jpg') }}')">
+        <div class="h-100 d-md-flex align-items-end auth-side-img" style="background-image: url('{{ asset('img/login.jpg') }}')">
             <div class="col-sm-10 auth-content w-auto">
                 {{-- <img src="{{ asset('/') }}img/e-wisata.png" alt="{{ config('app.name') }}" class="img-fluid" style="max-width: 400px;"> --}}
                 {{-- <h1 class="text-white my-4">Login Sistem</h1>

@@ -26,7 +26,7 @@
                 <div class="col-sm-4">
                     <div class="card bg-warning text-white widget-visitor-card">
                         <div class="card-body text-center">
-                            <h2 class="text-white">{{ $karyawan }}</h2>
+                            <h2 class="text-white">{{ $admin }}</h2>
                             <h6 class="text-white">Admin</h6>
                             <i class="feather icon-user-plus"></i>
                         </div>
@@ -44,7 +44,7 @@
                 <div class="col-sm-4">
                     <div class="card bg-warning text-white widget-visitor-card">
                         <div class="card-body text-center">
-                            <h2 class="text-white">{{ $karyawan }}</h2>
+                            <h2 class="text-white">{{ $promo }}</h2>
                             <h6 class="text-white">Promo</h6>
                             <i class="feather icon-user-plus"></i>
                         </div>
@@ -53,16 +53,16 @@
                 <div class="col-sm-4">
                     <div class="card bg-success text-white widget-visitor-card">
                         <div class="card-body text-center">
-                            <h2 class="text-white">{{ $transaksi }}</h2>
+                            <h2 class="text-white">{{ $artikel }}</h2>
                             <h6 class="text-white">Artikel</h6>
                             <i class="feather icon-user-plus"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="card bg-success text-white widget-visitor-card">
+                    <div class="card bg-info text-white widget-visitor-card">
                         <div class="card-body text-center">
-                            <h2 class="text-white">{{ $transaksi }}</h2>
+                            <h2 class="text-white">Rp. {{ number_format($laporan, 0, ',', '.') }}</h2>
                             <h6 class="text-white">Laporan</h6>
                             <i class="feather icon-user-plus"></i>
                         </div>

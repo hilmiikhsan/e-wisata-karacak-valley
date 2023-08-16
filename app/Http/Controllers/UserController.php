@@ -17,6 +17,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function akun_admin()
+    {
+        $users = User::where('username', '!=', 'super_admin')->where('role', 'super_admin')->get();
+        $data = [
+            'title' => 'E-Wisata | Akun Admin',
+            'users' => $users
+        ];
+
+        return view('dashboard.user.akun_admin', $data);
+    }
+
     public function akun_karyawan()
     {
         $users = User::where('username', '!=', 'super_admin')->where('role', 'staff')->get();
@@ -24,7 +35,7 @@ class UserController extends Controller
             'title' => 'E-Wisata | Akun Karyawan',
             'users' => $users
         ];
-        
+
         return view('dashboard.user.akun_karyawan', $data);
     }
 
@@ -40,7 +51,7 @@ class UserController extends Controller
             'title' => 'E-Wisata | Akun Member',
             'users' => $users
         ];
-        
+
         return view('dashboard.user.akun_member', $data);
     }
 
@@ -87,7 +98,7 @@ class UserController extends Controller
 
         if ($request->hasFile('avatar')) {
             $filename = Str::random(32) . '.' . $request->file('avatar')->getClientOriginalExtension();
-            $file_path = $request->file('avatar')->storeAs('public/uploads', $filename); 
+            $file_path = $request->file('avatar')->storeAs('public/uploads', $filename);
         }
 
         $user = new User;
@@ -96,7 +107,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->role = 'staff';
+        $user->role = 'super_admin';
         $user->avatar = isset($file_path) ? $file_path : '';
         $user->save();
 
@@ -168,7 +179,7 @@ class UserController extends Controller
             }
 
             $filename = Str::random(32) . '.' . $request->file('avatar')->getClientOriginalExtension();
-            $file_path = $request->file('avatar')->storeAs('public/uploads', $filename); 
+            $file_path = $request->file('avatar')->storeAs('public/uploads', $filename);
         }
 
         if (isset($request->password)) {
@@ -177,7 +188,7 @@ class UserController extends Controller
         if (isset($request->password)) {
             $user->password = Hash::make($request->password);
         }
-        
+
         if (isset($request->name)){
             $user->name = $request->name;
         }
@@ -215,6 +226,6 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->back()->with('success', 'Berhasil menghapus data');
-        
+
     }
 }

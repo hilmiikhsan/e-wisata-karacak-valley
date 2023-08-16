@@ -34,11 +34,11 @@
                                         <input type="file" class="form-control" name="thumbnail">
                                     </div>
                                     <div class="form-group col-md-8">
-                                        <label>Judul Berita</label>
+                                        <label>Judul</label>
                                         <input type="text" class="form-control" name="judul" required>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label>Deskripsi</label>
+                                        <label>Deskripsi Blog</label>
                                         <textarea class="ckeditor" name="deskripsi" id="deskripsi" cols="30" rows="4"></textarea>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -48,6 +48,10 @@
                                               Publish ?
                                             </label>
                                           </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>Tanggal</label>
+                                        <input type="date" class="form-control" name="tanggal" required>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn  btn-primary">Simpan</button>

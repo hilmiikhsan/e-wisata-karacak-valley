@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Transaction;
 use App\TransactionDetail;
+use App\PaymentMethod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -15,10 +16,23 @@ class TransactionController extends Controller
         $transactions = Transaction::where('member_id', Auth::user()->id)->with(['wisata', 'transaksi_detail'])->get();
         $data = [
             'title' => 'E-Wisata | Pesanan Saya',
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'userName' => Auth::user()->name
         ];
 
         return view('dashboard.transaksi.pesananku', $data);
+    }
+
+    public function create()
+    {
+        $paymentMethods = PaymentMethod::all();
+
+        $data = [
+            'title' => 'Buat Pesanan',
+            'paymentMethods' => $paymentMethods
+        ];
+
+        return view('dashboard.transaksi.create', $data);
     }
 
     public function pemesanan()
@@ -40,7 +54,9 @@ class TransactionController extends Controller
         $transaction = Transaction::where('id', $id)->with(['wisata', 'transaksi_detail'])->first();
         $data = [
             'title' => env('APP_NAME') . ' | Detail Pesanan',
-            'transaction' => $transaction
+            'transaction' => $transaction,
+            'userName' => Auth::user()->name,
+            'userRole' => Auth::user()->role
         ];
 
         return view('dashboard.transaksi.show', $data);
@@ -70,7 +86,7 @@ class TransactionController extends Controller
 
         if ($request->hasFile('payment_proof')) {
             $filename = Str::random(32) . '.' . $request->file('payment_proof')->getClientOriginalExtension();
-            $file_path = $request->file('payment_proof')->storeAs('public/uploads', $filename); 
+            $file_path = $request->file('payment_proof')->storeAs('public/uploads', $filename);
         }
 
         $transaksi = Transaction::find($id);
@@ -79,7 +95,7 @@ class TransactionController extends Controller
 
         return redirect()->back()->with('success', 'Berhasil mengupload bukti pembayaran');
     }
-    
+
     public function destroy($id)
     {
         $transaksi = Transaction::find($id);

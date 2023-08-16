@@ -24,14 +24,18 @@
                                 <table class="table table-bordered table-striped mb-0 lara-dataTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>No</th>
                                             <th>Kode Transaksi</th>
-                                            <th>Pemesan (Member)</th>
-                                            <th>Wisata</th>
+                                            <th>Nama</th>
+                                            <th>K.Usia</th>
+                                            <th>Kunjungan</th>
                                             <th>Jml Orang & Hari</th>
-                                            <th>Tanggal Booking </th>
                                             <th>Tanggal Kedatangan </th>
+                                            <th>Metode Pembayaran </th>
+                                            <th>Nama Akun Pelanggan </th>
+                                            <th>Nomor Rekening Pelanggan </th>
                                             <th>Grand Total</th>
+                                            <th>Bukti Pembayaran</th>
                                             <th>Status Pembayaran</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -42,36 +46,51 @@
                                                 <td width="10">{{ $loop->iteration }}</td>
                                                 <td>{{ $item->trans_code }}</td>
                                                 <td>{{ $item->member->name }}</td>
-                                                <td>{{ $item->wisata->wisata }}</td>
+                                                <td>{{ $item->category_age }}</td>
+                                                <td>{{ $item->visited }}</td>
                                                 <td>
-                                                    {{ $item->people_count }} Orang <br>
+                                                    {{ $item->people_count }} Orang &
                                                     {{ $item->days }} Hari
                                                 </td>
-                                                <td>{{ \Carbon\Carbon::parse($item->created_at)->locale('id_ID')->isoFormat('dddd, D MMMM Y | H:mm A') }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($item->check_in)->locale('id_ID')->isoFormat('dddd, D MMMM Y') }}</td>
+                                                <td>{{ $item->payment_method }}</td>
+                                                <td>{{ $item->account_name }}</td>
+                                                <td>{{ $item->account_number }}</td>
+                                                {{-- <td>
+                                                    @php
+                                                        $grand_total = $item->people_count * $item->days * $item->wisata->price;
+                                                    @endphp
+                                                    @foreach ($item->transaksi_detail as $det)
+                                                        @php
+                                                            $facility = \App\Fasilitas::find($det->facility_id);
+                                                            $grand_total += $item->people_count * $item->days * $facility->price;
+                                                        @endphp
+                                                    @endforeach
+                                                    {!! ($grand_total > 0) ? "Rp. " . number_format($grand_total, 0, ",",".") : "Rp 0" !!}
+                                                </td> --}}
+                                                <td>{{ "Rp. " . number_format($item->grand_total, 0, ",",".") }}</td>
                                                 <td>
-                                                    {!! ($item->grand_total > 0) ? "Rp. " . number_format($item->grand_total, 0, ",",".") : "Rp 0" !!}
+                                                    <img src="{{ ($item->payment_proof == '') ? asset('img/default.png') : url(Storage::url($item->payment_proof)) }}" alt="" style="width: 50px">
                                                 </td>
                                                 <td>
                                                     @if ($item->status == 1)
                                                         <div class="badge badge-success">
-                                                            <i class="feather icon-check-circle mr-2"></i>Pembayaran Diverifikasi Lunas
+                                                            <i class="feather icon-check-circle mr-2"></i>Pembayaran Sudah Lunas
                                                         </div>
                                                     @else
                                                         <div class="badge badge-warning">
-                                                            <i class="feather icon-check-circle mr-2"></i>Pembayaran Belum Diverifikasi Lunas
+                                                            <i class="feather icon-check-circle mr-2"></i>Pembayaran Belum Lunas
                                                         </div>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('dashboard.transaction.detail', $item->id) }}" class="btn btn-info btn-sm">Detail</a>
-                                                    @if (Auth::user()->role == 'super_admin')
-                                                        <form method="POST" action="{{ route('dashboard.transaction.destroy', $item->id) }}" class="d-inline-block">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm delete-button">Hapus</button>
-                                                        </form>
-                                                    @endif
+                                                    <a href="{{ route('dashboard.transaction.show', $item->id) }}" class="btn btn-info btn-sm">Cetak Tiket</a>
+                                                    <a href="{{ route('dashboard.transaction.show', $item->id) }}" class="btn btn-primary btn-sm">Upload Bukti</a>
+                                                    <form method="POST" action="{{ route('dashboard.transaction.destroy', $item->id) }}" class="d-inline-block">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm delete-button">Hapus</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

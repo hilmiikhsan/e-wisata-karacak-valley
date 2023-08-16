@@ -11,7 +11,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h5>Tambah Akun</h5>
-                            
+
                         </div>
                         <div class="card-body">
                             @if (Session::has('success'))
